@@ -1,4 +1,6 @@
 #!/usr/bin/env python3 
+import greek_module as gk
+
 
 from cltk.corpus.utils.importer import CorpusImporter
 
@@ -60,17 +62,16 @@ from cltk.stop.greek.stops import STOPS_LIST
 
 sentence = r
 
-p = PunktLanguageVars()
+p = gk.PunktLanguageVars_greek()
 
 tokens = p.word_tokenize(sentence.lower())
 
 
 #ACCRESCIMENTO STOPS_LIST
-STOPS_LIST.extend(['.', ',', "'", '·', '[', ']' '-', ';'])
+STOPS_LIST.extend(['.', ',', "'", '·', '[',']',';','·', '-'])
 #print(STOPS_LIST)
 
 tokens_no_punctuation = [w for w in tokens if w not in STOPS_LIST]
-
 
 tokens_clean = [w.strip('.') for w in tokens_no_punctuation]
 
